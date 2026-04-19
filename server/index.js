@@ -1,10 +1,13 @@
 import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
+import {router} from "./routes/auth.js"
 
 dotenv.config();
 const app = express();
 const port = "5001";
+app.use(express.json());
+app.use("/api/auth", router);
 
 app.get("/", (req, res) =>
   {res.send("Server is running");}
