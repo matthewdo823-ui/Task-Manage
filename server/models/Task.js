@@ -3,17 +3,19 @@ const { Schema } = mongoose;
 
 const taskSchema = new Schema({
     title: {
-        Type: String,
+        type: String,
         required: true,
     },
     description: String,
     status: {
-        String,
+        type: String,
         enum: ['todo', 'in progress', 'complete'],
         default: 'todo',
-        required: true
+        required: true,
     },
-    user: {ref: 'user'},
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',},
 }, {timestamps: true } // adds createdAt and updatedAt
 );
 
